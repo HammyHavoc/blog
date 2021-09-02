@@ -16,7 +16,7 @@
 <link rel=mask-icon href=https://blog.edfloreshz.dev/images/favicon/favicon.png>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.88.0">
 <meta property="og:title" content="Let's Talk About Cargo For Rust Projects">
 <meta property="og:description" content="We are now going to discuss how can we use Cargo, one of the tools we talked about that comes with Rust">
 <meta property="og:type" content="article">
@@ -86,7 +86,7 @@ September 17, 2020&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Eduardo Flores
 <h1 id=hello-cargo>Hello Cargo<a hidden class=anchor aria-hidden=true href=#hello-cargo>#</a></h1>
 <p>In the last article, we created a file called <code>main.rs</code>, wrote the main function with some very basic functionality, and used <code>rustc</code> to compile and then ran it. Now, we are going to focus on using the <code>rand</code> crate to make a random number generator, our main focus here will be using <code>cargo</code> to make all of this easier.</p>
 <p>To start a new project, navigate to your projects directory and type:</p>
-<pre><code>cargo new randgen
+<pre tabindex=0><code>cargo new randgen
 </code></pre><p>We&rsquo;ll see that there&rsquo;s now a new directory called <code>randgen</code> in our projects folder. When we enter, we will see a file called <code>Cargo.toml</code>, which is our project&rsquo;s configuration file, it looks something like this:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml>[<span style=color:#a6e22e>package</span>]
 <span style=color:#a6e22e>name</span> = <span style=color:#e6db74>&#34;randgen&#34;</span>
@@ -132,7 +132,7 @@ September 17, 2020&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Eduardo Flores
 </code></pre></div><p>We don&rsquo;t know exactly what number will be displayed, given that it is a random number.</p>
 <h3 id=running-the-program>Running the program<a hidden class=anchor aria-hidden=true href=#running-the-program>#</a></h3>
 <p>Try running your program, but this time use Cargo to run it.</p>
-<pre><code class=language-bashtoml data-lang=bashtoml>cargo run
+<pre tabindex=0><code class=language-bashtoml data-lang=bashtoml>cargo run
 </code></pre><p>Whoops! What did we miss?</p>
 <p>You should&rsquo;ve encountered something like this:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>error<span style=color:#f92672>[</span>E0432<span style=color:#f92672>]</span>: unresolved import <span style=color:#e6db74>`</span>rand<span style=color:#e6db74>`</span>
