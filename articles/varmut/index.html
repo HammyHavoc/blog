@@ -16,7 +16,7 @@
 <link rel=mask-icon href=https://blog.edfloreshz.dev/images/favicon/favicon.png>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.88.0">
+<meta name=generator content="Hugo 0.89.4">
 <meta property="og:title" content="Variables And Mutability In Rust">
 <meta property="og:description" content="In the last article, we talked about how to use Cargo for Rust projects and highlighted some of its most common commands. We are now going to go further and start talking about variables and mutability.">
 <meta property="og:type" content="article">
@@ -89,9 +89,9 @@ September 18, 2020&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Eduardo Flores
 <p>When a variable is immutable, once a value is bound to a name, you cannot change that value. Let&rsquo;s see an example:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() {
     <span style=color:#66d9ef>let</span> x <span style=color:#f92672>=</span> <span style=color:#ae81ff>5</span>;
-    println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;The value is: {}&#34;</span>, x);
+    println!(<span style=color:#e6db74>&#34;The value is: {}&#34;</span>, x);
     x <span style=color:#f92672>=</span> <span style=color:#ae81ff>6</span>;
-    println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;The value is: {}&#34;</span>, x);
+    println!(<span style=color:#e6db74>&#34;The value is: {}&#34;</span>, x);
 }
 </code></pre></div><p>Save and run the program using <code>cargo run</code>.You should receive an error message:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cargo run
@@ -123,9 +123,9 @@ To learn more, run the command again with --verbose.
 <p>Okay! Let&rsquo;s fix our program, taking all of the previous suggestions into account, you might&rsquo;ve realized by now that we are missing a keyword in our variable definition, <code>mut</code>, this keyword will make our variables <strong>mutable</strong>:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() {
     <span style=color:#66d9ef>let</span> <span style=color:#66d9ef>mut</span> x <span style=color:#f92672>=</span> <span style=color:#ae81ff>5</span>;
-    println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;The value of x is: {}&#34;</span>, x);
+    println!(<span style=color:#e6db74>&#34;The value of x is: {}&#34;</span>, x);
     x <span style=color:#f92672>=</span> <span style=color:#ae81ff>6</span>;
-    println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;The value of x is: {}&#34;</span>, x);
+    println!(<span style=color:#e6db74>&#34;The value of x is: {}&#34;</span>, x);
 }
 </code></pre></div><p>Therefore, you are now allowed to reassign the value for our <code>x</code> variable.</p>
 <h1 id=differences-between-variables-and-constants>Differences between variables and constants<a hidden class=anchor aria-hidden=true href=#differences-between-variables-and-constants>#</a></h1>
@@ -145,7 +145,7 @@ To learn more, run the command again with --verbose.
     <span style=color:#66d9ef>let</span> x <span style=color:#f92672>=</span> x <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;
     <span style=color:#66d9ef>let</span> x <span style=color:#f92672>=</span> x <span style=color:#f92672>*</span> <span style=color:#ae81ff>2</span>;
 
-    println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;The value of x is: {}&#34;</span>, x);
+    println!(<span style=color:#e6db74>&#34;The value of x is: {}&#34;</span>, x);
 }
 
 </code></pre></div><p>As you can see, this program first binds <code>x</code> to a value of <code>5</code>. Then it shadows <code>x</code> by repeating <code>let x =</code>, taking the original value, and adding <code>1</code> so the value of <code>x</code> is then <code>6</code>. Then, the third let statement also shadows <code>x</code>, multiplying the previous value by <code>2</code> to give <code>x</code> a final value of <code>12</code>. When we run this program, it will output the following:</p>

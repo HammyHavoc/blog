@@ -16,7 +16,7 @@
 <link rel=mask-icon href=https://blog.edfloreshz.dev/images/favicon/favicon.png>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.88.0">
+<meta name=generator content="Hugo 0.89.4">
 <meta property="og:title" content="Data Types In Rust">
 <meta property="og:description" content="In this article, we&rsquo;ll be discussing the various data types in Rust">
 <meta property="og:type" content="article">
@@ -223,7 +223,7 @@ September 25, 2020&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Eduardo Flores
     <span style=color:#66d9ef>let</span> yes <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span> <span style=color:#f92672>||</span> <span style=color:#66d9ef>true</span>;
     <span style=color:#66d9ef>let</span> no <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#66d9ef>false</span>;
 
-    println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;{} and {}&#34;</span>, yes, no); <span style=color:#75715e>// true and false
+    println!(<span style=color:#e6db74>&#34;{} and {}&#34;</span>, yes, no); <span style=color:#75715e>// true and false
 </span><span style=color:#75715e></span>}
 </code></pre></div><h2 id=the-character-type>The Character Type<a hidden class=anchor aria-hidden=true href=#the-character-type>#</a></h2>
 <p>Rust doesn&rsquo;t only work with numbers, it has letters too!</p>
@@ -262,7 +262,7 @@ September 25, 2020&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Eduardo Flores
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() {
     <span style=color:#66d9ef>let</span> tup <span style=color:#f92672>=</span> (<span style=color:#ae81ff>500</span>, <span style=color:#ae81ff>6.4</span>, <span style=color:#ae81ff>1</span>);
     <span style=color:#66d9ef>let</span> (x, y, z) <span style=color:#f92672>=</span> tup;
-    println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;The value of y is: {}&#34;</span>, y);  <span style=color:#75715e>// 6.4
+    println!(<span style=color:#e6db74>&#34;The value of y is: {}&#34;</span>, y);  <span style=color:#75715e>// 6.4
 </span><span style=color:#75715e></span>}
 </code></pre></div><p>This program first creates a tuple and binds it to the variable <code>tup</code>. It then uses a pattern with <code>let</code> to take <code>tup</code> and turn it into three separate variables, <code>x</code>, <code>y</code>, and <code>z</code>. This is called destructuring because it breaks the single tuple into three parts. Finally, the program prints the value of <code>y</code>, which is <code>6.4</code>.</p>
 <p>In addition to destructuring through pattern matching, we can access a tuple element directly by using a period <code>.</code> followed by the index of the value we want to access. For example:</p>
@@ -302,7 +302,7 @@ September 25, 2020&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Eduardo Flores
 
     <span style=color:#66d9ef>let</span> element <span style=color:#f92672>=</span> a[index];
 
-    println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;The value of element is: {}&#34;</span>, element);
+    println!(<span style=color:#e6db74>&#34;The value of element is: {}&#34;</span>, element);
 }
 </code></pre></div><p>Running this code using cargo run produces the following result:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cargo run

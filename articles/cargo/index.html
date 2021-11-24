@@ -16,7 +16,7 @@
 <link rel=mask-icon href=https://blog.edfloreshz.dev/images/favicon/favicon.png>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.88.0">
+<meta name=generator content="Hugo 0.89.4">
 <meta property="og:title" content="Let's Talk About Cargo For Rust Projects">
 <meta property="og:description" content="We are now going to discuss how can we use Cargo, one of the tools we talked about that comes with Rust">
 <meta property="og:type" content="article">
@@ -100,7 +100,7 @@ September 17, 2020&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Eduardo Flores
 </code></pre></div><p>And the <code>src</code> directory, where all of our source files will live.</p>
 <p>Let&rsquo;s open <code>src/main.rs</code> and see what&rsquo;s in there:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() {
-    println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;Hello, world!&#34;</span>);
+    println!(<span style=color:#e6db74>&#34;Hello, world!&#34;</span>);
 }
 </code></pre></div><p>Looks familiar?</p>
 <h3 id=dependencies>Dependencies<a hidden class=anchor aria-hidden=true href=#dependencies>#</a></h3>
@@ -108,7 +108,7 @@ September 17, 2020&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Eduardo Flores
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=color:#66d9ef>use</span> rand::Rng;
 
 <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() {
-    println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;Hello, world!&#34;</span>);
+    println!(<span style=color:#e6db74>&#34;Hello, world!&#34;</span>);
 }
 </code></pre></div><p>When we want to include a dependency in one of our files, we need to use the <code>use</code> keyword, followed by our crate&rsquo;s name and subsequent modules, in this case, the <code>Rng</code> trait, we separate them by using a <code>::</code>.</p>
 <blockquote>
@@ -121,12 +121,12 @@ September 17, 2020&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Eduardo Flores
 
 <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() {
     <span style=color:#66d9ef>let</span> random <span style=color:#f92672>=</span> rand::thread_rng().gen_range(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>101</span>);
-    println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;The random number is {}!&#34;</span>, random);
+    println!(<span style=color:#e6db74>&#34;The random number is {}!&#34;</span>, random);
 }
 </code></pre></div><p>We use the <code>let</code> keyword to create new variables, followed by their name, then we use <code>=</code> to assign a value to them. In this case, we&rsquo;re assigning the value that <code>rand::thread_rng().gen_range(1, 101)</code> generates. Both <code>thread_rng()</code> and <code>gen_range()</code> are functions, which return a value.</p>
 <p><code>thread_rng()</code> returns a lazily-initialized thread-local random number generator, which then calls <code>gen_range()</code>, a function that returns a random value that is in the range that was passed to the function as a parameter, in this case, <code>1, 100</code>.</p>
 <p>We then pass this variable to <code>println!</code> and we use a syntax we haven&rsquo;t seen before:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust>println<span style=color:#f92672>!</span>(<span style=color:#e6db74>&#34;The random number is {}!&#34;</span>, random);
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust>println!(<span style=color:#e6db74>&#34;The random number is {}!&#34;</span>, random);
 </code></pre></div><p>That <code>{}</code> you see inside the text we&rsquo;re printing is a placeholder for a value to fill in, in this case, the <code>random</code> variable. When we run this, we might encounter something like this:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>The random number is 12!
 </code></pre></div><p>We don&rsquo;t know exactly what number will be displayed, given that it is a random number.</p>
